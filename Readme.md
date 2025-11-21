@@ -1,88 +1,95 @@
 # CardioGuard AI • Neural Diagnostic System 🫀
 
-![Python](https://img.shields.io/badge/Python-3.9%2B-blue)
-![Streamlit](https://img.shields.io/badge/Streamlit-1.28%2B-FF4B4B)
-![Scikit-Learn](https://img.shields.io/badge/Scikit--Learn-1.3%2B-F7931E)
+![Python](https://img.shields.io/badge/Python-3.8%2B-blue)
+![Streamlit](https://img.shields.io/badge/Streamlit-1.28%2B-ff4b4b)
+![Scikit-learn](https://img.shields.io/badge/Scikit--learn-1.3%2B-orange)
 ![License](https://img.shields.io/badge/License-MIT-green)
 
-**CardioGuard AI** is a futuristic, high-precision heart disease prediction system powered by machine learning. It features a premium, animated user interface designed to provide real-time diagnostic insights with a "command center" aesthetic.
+**CardioGuard AI** is a state-of-the-art heart disease prediction system powered by machine learning. It utilizes a Random Forest Classifier to analyze patient biometric data and provide a real-time risk assessment. The application features a futuristic, "Ultra Premium" user interface designed for clarity, engagement, and professional medical aesthetics.
 
-## 🌟 Features
+## ✨ Key Features
 
-*   **Futuristic UI/UX:** Immersive dark-mode interface with animated particle backgrounds, glassmorphism effects, and neon accents.
-*   **Advanced Diagnostics:** Utilizes a **Random Forest Classifier** to predict the likelihood of heart disease based on clinical parameters.
-*   **Interactive Data Input:** User-friendly sliders and selectors for inputting patient demographics, cardiovascular metrics, and lab results.
-*   **Real-Time Analysis:** Instant risk probability calculation with visual feedback.
-*   **Visual Risk Assessment:**
-    *   Animated gauge charts for risk probability.
-    *   Dynamic risk cards (Low Risk vs. High Risk) with actionable recommendations.
+*   **🤖 Advanced ML Engine**: Powered by a robust Random Forest Classifier trained on clinical heart disease data.
+*   **🎨 Futuristic UI/UX**: Immersive interface with animated backgrounds, particle effects, and glassmorphism design.
+*   **📊 Interactive Biometrics**: Easy-to-use sliders and dropdowns for inputting patient data (Age, BP, Cholesterol, etc.).
+*   **⚡ Real-time Analysis**: Instant risk probability calculation with visual feedback.
+*   **📈 Dynamic Visualizations**:
+    *   Animated gauge charts for risk scoring.
     *   Key health metrics dashboard.
-*   **Lottie Animations:** Integrated high-quality animations for a lively user experience.
+    *   Lottie animations for visual engagement.
+*   **🔄 Auto-Healing**: Automatically retrains the model if the model file is missing or incompatible.
 
 ## 🛠️ Tech Stack
 
-*   **Frontend:** [Streamlit](https://streamlit.io/) (Python-based web framework)
-*   **Machine Learning:** [Scikit-Learn](https://scikit-learn.org/) (Random Forest Classifier)
-*   **Visualization:** [Plotly](https://plotly.com/) (Interactive charts), [Streamlit Lottie](https://github.com/andfanilo/streamlit-lottie)
-*   **Data Processing:** Pandas, Joblib
+*   **Frontend**: [Streamlit](https://streamlit.io/)
+*   **Machine Learning**: [Scikit-learn](https://scikit-learn.org/)
+*   **Data Processing**: [Pandas](https://pandas.pydata.org/)
+*   **Visualization**: [Plotly](https://plotly.com/), [Streamlit-Lottie](https://github.com/andfanilo/streamlit-lottie)
+*   **Model Serialization**: [Joblib](https://joblib.readthedocs.io/)
 
 ## 📂 Project Structure
 
 ```
 ├── app.py                  # Main Streamlit application
-├── train_model.py          # Script to train the MLmodel
-├── heart.csv               # Dataset used for training
-├── model.joblib            # Saved trained model
-├── healthy_profile.joblib  # Saved healthy patient 
-└── Readme.md               # Project documentation
+├── train_model.py          # Model training script
+├── heart.csv               # Dataset for training
+├── model.joblib            # Trained Random Forest model
+├── healthy_profile.joblib  # Reference profile for default values
+├── requirements.txt        # Python dependencies
+└── README.md               # Project documentation
 ```
 
 ## 🚀 Installation & Setup
 
-1.  **Clone the repository** (if applicable) or download the source code.
-
-2.  **Install Dependencies:**
-    Ensure you have Python installed. It is recommended to use a virtual environment.
+1.  **Clone the repository** (or download the files):
     ```bash
-    pip install streamlit pandas scikit-learn joblib plotly requests streamlit-lottie
+    git clone <repository-url>
+    cd heart-disease-prediction
     ```
 
-3.  **Train the Model:**
-    Before running the app, you need to train the model and generate the necessary artifacts.
+2.  **Create a virtual environment** (optional but recommended):
+    ```bash
+    python -m venv venv
+    # Windows
+    venv\Scripts\activate
+    # macOS/Linux
+    source venv/bin/activate
+    ```
+
+3.  **Install dependencies**:
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+4.  **Train the Model** (First Run):
+    If `model.joblib` is missing, the app will attempt to train it automatically. You can also manually train it:
     ```bash
     python train_model.py
     ```
-    *This will create `model.joblib` and `healthy_profile.joblib` in your directory.*
 
-4.  **Run the Application:**
-    Launch the Streamlit app:
+## 💻 Usage
+
+1.  **Run the application**:
     ```bash
     streamlit run app.py
     ```
 
-5.  **Access the App:**
-    The application will open in your default web browser, usually at `http://localhost:8501`.
+2.  **Navigate the Interface**:
+    *   Enter patient details in the **Biometric Input** section.
+    *   Adjust sliders for numerical values (Age, Blood Pressure, etc.).
+    *   Select options for categorical values (Chest Pain Type, ECG results, etc.).
 
-## 🩺 Usage Guide
+3.  **Analyze**:
+    *   Click the **⚡ INITIATE ANALYSIS** button.
+    *   View the **Risk Probability** gauge and detailed recommendation card.
 
-1.  **Input Patient Data:** Use the sidebar or main panel to enter patient details such as Age, Sex, Chest Pain Type, Blood Pressure, Cholesterol, etc.
-2.  **Initiate Analysis:** Click the **"⚡ INITIATE ANALYSIS"** button.
-3.  **View Results:**
-    *   Watch the neural network processing animation.
-    *   Review the **Risk Probability** gauge.
-    *   Check the **Diagnostic Card** for the final assessment (Low/High Risk) and recommendations.
-    *   Analyze the **Key Health Metrics** displayed at the bottom.
+## ⚠️ Medical Disclaimer
 
-## 🤖 Model Details
+**CardioGuard AI is a demonstration tool for educational and research purposes only.**
 
-The system uses a **Random Forest Classifier**, a robust ensemble learning method.
-*   **Preprocessing:** Standard Scaling for numerical features, One-Hot Encoding for categorical variables.
-*   **Metrics:** The model achieves an accuracy of approximately **98.5%** on the test dataset.
-*   **Dataset:** Trained on the Heart Disease UCI dataset (or similar).
-
-## ⚠️ Disclaimer
-
-*CardioGuard AI is a demonstration tool for educational and illustrative purposes only. It is not a substitute for professional medical advice, diagnosis, or treatment. Always seek the advice of your physician or other qualified health provider with any questions you may have regarding a medical condition.*
+*   It is **NOT** a substitute for professional medical advice, diagnosis, or treatment.
+*   Always seek the advice of your physician or other qualified health provider with any questions you may have regarding a medical condition.
+*   Do not disregard professional medical advice or delay in seeking it because of something you have read on this application.
 
 ---
 © 2025 CardioGuard AI | Neural Diagnostic System
