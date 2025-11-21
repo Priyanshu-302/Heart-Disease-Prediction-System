@@ -13,13 +13,13 @@ try:
     model = joblib.load('model.joblib')
     healthy_profile = joblib.load('healthy_profile.joblib')
 except (FileNotFoundError, AttributeError, Exception) as e:
-    st.warning(f"Model not found or incompatible ({str(e)}). Retraining model...")
+    # st.warning(f"Model not found or incompatible ({str(e)}). Retraining model...")
     try:
         import train_model
         train_model.train()
         model = joblib.load('model.joblib')
         healthy_profile = joblib.load('healthy_profile.joblib')
-        st.success("Model retrained successfully!")
+        # st.success("Model retrained successfully!")
     except Exception as train_error:
         st.error(f"Failed to retrain model: {str(train_error)}")
         st.stop()
