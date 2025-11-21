@@ -8,7 +8,6 @@ import time
 import textwrap
 
 # Load the trained model and healthy profile
-# Load the trained model and healthy profile
 try:
     model = joblib.load('model.joblib')
     healthy_profile = joblib.load('healthy_profile.joblib')
@@ -251,6 +250,196 @@ st.markdown("""
     #MainMenu {visibility: hidden;}
     footer {visibility: hidden;}
     header {visibility: hidden;}
+    
+    /* ============================================ */
+    /* MOBILE RESPONSIVE DESIGN */
+    /* ============================================ */
+    
+    /* Tablet Devices (768px and below) */
+    @media screen and (max-width: 768px) {
+        /* Header adjustments */
+        h1 {
+            font-size: 2.5rem !important;
+        }
+        
+        h2 {
+            font-size: 1.8rem !important;
+        }
+        
+        h3 {
+            font-size: 1.4rem !important;
+        }
+        
+        /* Card padding reduction */
+        .diagnostic-card {
+            padding: 20px;
+            border-radius: 16px;
+            margin-bottom: 16px;
+        }
+        
+        /* Button adjustments */
+        .stButton>button {
+            padding: 14px 32px;
+            font-size: 16px;
+            letter-spacing: 1px;
+        }
+        
+        /* Risk display */
+        .risk-high, .risk-low {
+            font-size: 2.5rem;
+        }
+        
+        /* Metric boxes */
+        .metric-box {
+            padding: 16px;
+            margin-bottom: 12px;
+        }
+        
+        .metric-value {
+            font-size: 1.5rem;
+        }
+        
+        .metric-label {
+            font-size: 0.8rem;
+        }
+        
+        /* Reduce animation intensity */
+        .diagnostic-card:hover {
+            transform: translateY(-2px) scale(1.005);
+        }
+    }
+    
+    /* Mobile Devices (480px and below) */
+    @media screen and (max-width: 480px) {
+        /* Typography scaling */
+        h1 {
+            font-size: 1.8rem !important;
+            line-height: 1.2;
+        }
+        
+        h2 {
+            font-size: 1.3rem !important;
+        }
+        
+        h3 {
+            font-size: 1.1rem !important;
+        }
+        
+        h5 {
+            font-size: 1rem !important;
+        }
+        
+        /* Compact card design */
+        .diagnostic-card {
+            padding: 16px;
+            border-radius: 12px;
+            margin-bottom: 12px;
+        }
+        
+        /* Button mobile optimization */
+        .stButton>button {
+            padding: 12px 24px;
+            font-size: 14px;
+            letter-spacing: 0.5px;
+            width: 100%;
+        }
+        
+        /* Risk display compact */
+        .risk-high, .risk-low {
+            font-size: 2rem;
+        }
+        
+        .risk-container {
+            padding: 16px;
+            margin: 16px 0;
+        }
+        
+        .risk-container p {
+            font-size: 1rem !important;
+        }
+        
+        /* Metric boxes mobile */
+        .metric-box {
+            padding: 12px;
+            margin-bottom: 10px;
+            border-radius: 12px;
+        }
+        
+        .metric-value {
+            font-size: 1.3rem;
+        }
+        
+        .metric-label {
+            font-size: 0.75rem;
+        }
+        
+        /* Disable hover effects on mobile */
+        .diagnostic-card:hover {
+            transform: none;
+            border-color: rgba(255, 255, 255, 0.1);
+            box-shadow: 
+                0 8px 32px rgba(0, 0, 0, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+        
+        .metric-box:hover {
+            background: rgba(255, 255, 255, 0.02);
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Reduce spacing */
+        .main .block-container {
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+        
+        /* Slider adjustments */
+        .stSlider {
+            padding: 0;
+        }
+        
+        /* Radio button spacing */
+        [role="radiogroup"] {
+            gap: 8px;
+        }
+        
+        /* Select box mobile */
+        [data-baseweb="select"] {
+            font-size: 14px;
+        }
+    }
+    
+    /* Extra small devices (360px and below) */
+    @media screen and (max-width: 360px) {
+        h1 {
+            font-size: 1.5rem !important;
+        }
+        
+        h2 {
+            font-size: 1.2rem !important;
+        }
+        
+        .diagnostic-card {
+            padding: 12px;
+        }
+        
+        .stButton>button {
+            padding: 10px 20px;
+            font-size: 13px;
+        }
+        
+        .risk-high, .risk-low {
+            font-size: 1.6rem;
+        }
+        
+        .metric-value {
+            font-size: 1.1rem;
+        }
+        
+        .metric-label {
+            font-size: 0.7rem;
+        }
+    }
     
     </style>
 """, unsafe_allow_html=True)
